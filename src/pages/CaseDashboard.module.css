@@ -1,0 +1,69 @@
+.filterSection {
+  margin-bottom: 16px;
+}
+
+.filterSpace {
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.searchInput {
+  width: 300px;
+  min-width: 200px;
+}
+
+.statusSelect {
+  width: 150px;
+  min-width: 120px;
+}
+
+.reasonTag {
+  margin-bottom: 4px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.matchedCard {
+  border-left: 4px solid #ff4d4f;
+}
+
+.transactionPre {
+  margin: 0;
+  font-size: 12px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .searchInput {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .statusSelect {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .filterSpace {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .transactionPre {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .transactionPre {
+    font-size: 10px;
+  }
+}
+
