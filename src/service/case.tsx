@@ -9,7 +9,7 @@ const getCaseList = async (params?: IGetCaseListReq) => {
 }
 
 const performCaseAction = async (params: ICaseActionReq) => {
-  const response = await http.post(`/api/v1/cases/${params.id}/action`, params.payload);
+  const response = await http.post(`/api/v1/cases/${params.id}/action`, params);
   return response.data;
 }
 
