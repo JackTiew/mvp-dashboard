@@ -1,0 +1,36 @@
+.headerSection {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filterCard {
+  margin-bottom: 16px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .headerSection {
+    margin-bottom: 12px;
+  }
+
+  .filterCard {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerSection {
+    margin-bottom: 10px;
+  }
+
+  .filterCard {
+    margin-bottom: 10px;
+  }
+}
+

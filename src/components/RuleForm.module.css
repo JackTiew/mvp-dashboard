@@ -1,0 +1,37 @@
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.jsonPreview {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .jsonPreview {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formGrid {
+    gap: 8px;
+  }
+
+  .jsonPreview {
+    font-size: 10px;
+  }
+}
+
