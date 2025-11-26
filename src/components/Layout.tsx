@@ -9,6 +9,7 @@ import {
   UserOutlined,
   LogoutOutlined,
   MenuOutlined,
+  CloudUploadOutlined,
 } from '@ant-design/icons';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
@@ -57,6 +58,11 @@ export const Layout = () => {
       icon: <FileTextOutlined />,
       label: <Link to="/rules">Rules Studio</Link>,
     },
+    {
+      key: '/data-connector',
+      icon: <CloudUploadOutlined />,
+      label: <Link to="/data-connector">Data Connector</Link>,
+    },
   ];
 
   // Get dynamic page title based on current route
@@ -68,6 +74,8 @@ export const Layout = () => {
         return 'Case Dashboard';
       case '/rules':
         return 'Rules Studio';
+      case '/data-connector':
+        return 'Data Connector';
       default:
         return 'Page not found';
     }

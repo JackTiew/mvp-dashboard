@@ -5,6 +5,7 @@ import { Login } from './pages/Login';
 import { CaseDashboard } from './pages/CaseDashboard';
 import { RulesStudio } from './pages/RulesStudio';
 import { Metrics } from './pages/Metrics';
+import { DataConnector } from './pages/DataConnector';
 
 export const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
         <Route index element={<Metrics />} />
         <Route path="case" element={<CaseDashboard />} />
         <Route path="rules" element={<RulesStudio />} />
+        <Route path="data-connector" element={<DataConnector />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

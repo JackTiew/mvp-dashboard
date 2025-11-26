@@ -2,6 +2,7 @@
 import type { IRule } from '../interface/rule';
 import type { ICase } from '../interface/case';
 import type { IMetrics } from '../interface/metric';
+import type { IReport } from '../interface/report';
 
 export const mockRules: IRule[] = [
 	{
@@ -245,3 +246,51 @@ export const mockMetrics: IMetrics = {
 		{ date: '2025-10-23', amount: 31500 },
 	],
 };
+
+export const mockReports: IReport[] = [
+	{
+		id: 'report_1',
+		name: 'monthly_transactions_october.csv',
+		description: 'Monthly transaction report for October 2025',
+		type: 'csv',
+		size: '2.4 MB',
+		uploadedAt: '2025-11-01T10:30:00Z',
+		downloadUrl: '/mock/reports/monthly_transactions_october.csv',
+	},
+	{
+		id: 'report_2',
+		name: 'fraud_analysis_q3.pdf',
+		description: 'Quarterly fraud analysis report Q3 2025',
+		type: 'pdf',
+		size: '1.8 MB',
+		uploadedAt: '2025-10-28T14:15:00Z',
+		downloadUrl: '/mock/reports/fraud_analysis_q3.pdf',
+	},
+	{
+		id: 'report_3',
+		name: 'case_summary_november.xlsx',
+		description: 'Summary of all cases for November 2025',
+		type: 'xlsx',
+		size: '3.1 MB',
+		uploadedAt: '2025-11-15T09:00:00Z',
+		downloadUrl: '/mock/reports/case_summary_november.xlsx',
+	},
+	{
+		id: 'report_4',
+		name: 'rules_performance_report.csv',
+		description: 'Performance metrics for all active rules',
+		type: 'csv',
+		size: '856 KB',
+		uploadedAt: '2025-11-20T16:45:00Z',
+		downloadUrl: '/mock/reports/rules_performance_report.csv',
+	},
+	{
+		id: 'report_5',
+		name: 'annual_compliance_report.pdf',
+		description: 'Annual compliance and audit report 2025',
+		type: 'pdf',
+		size: '5.2 MB',
+		uploadedAt: '2025-11-10T08:30:00Z',
+		downloadUrl: '/mock/reports/annual_compliance_report.pdf',
+	},
+];

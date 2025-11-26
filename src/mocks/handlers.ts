@@ -1,9 +1,10 @@
 // Mock Service Worker handlers for API endpoints
 import { http, HttpResponse } from 'msw';
-import { mockRules, mockCases, mockMetrics } from './data';
+import { mockRules, mockCases, mockMetrics, mockReports } from './data';
 import type { ICreateRuleReq, IRule } from '../interface/rule';
 import type { ICase } from '../interface/case';
 import type { ICaseActionReq } from '../interface/case';
+import type { IReport } from '../interface/report';
 
 const BASE_URL = 'http://localhost:3000';
 
@@ -154,5 +155,71 @@ export const handlers = [
 	// GET /api/v1/metrics - Get metrics data
 	http.get(`${BASE_URL}/api/v1/metrics`, () => {
 		return HttpResponse.json(mockMetrics);
+	}),
+
+	// GET /api/v1/reports - Get all reports
+	http.get(`${BASE_URL}/api/v1/reports`, () => {
+		return HttpResponse.json(mockReports);
+	}),
+
+	// POST /api/v1/reports/upload - Upload a new report
+	http.post(`${BASE_URL}/api/v1/reports/upload`, async ({ request }) => {
+		// Simulate upload delay
+		await new Promise((resolve) => setTimeout(resolve, 1000));
+
+		// Randomly simulate upload failure (10% chance)
+		if (Math.random() < 0.1) {
+			return HttpResponse.json(
+				{
+					success: false,
+					message:
+						'Upload failed due to network error. Please try again.',
+				},
+				{ status: 500 }
+			);
+		}
+
+		// Get the form data
+		const formData = await request.formData();
+		const file = formData.get('file') as File;
+
+		if (!file) {
+			return HttpResponse.json(
+				{
+					success: false,
+					message: 'No file provided',
+				},
+				{ status: 400 }
+			);
+		}
+
+		// Create new report entry
+		const fileExt = file.name.split('.').pop()?.toLowerCase() as
+			| 'csv'
+			| 'pdf'
+			| 'xlsx';
+		const newReport: IReport = {
+			id: `report_${Date.now()}`,
+			name: file.name,
+			description: `User uploaded file - ${file.name}`,
+			type: fileExt || 'csv',
+			size: `${(file.size / 1024).toFixed(1)} KB`,
+			uploadedAt: new Date().toISOString(),
+			downloadUrl: `/mock/reports/${file.name}`,
+		};
+
+		// Add to mock data
+		mockReports.unshift(newReport);
+
+		return HttpResponse.json({
+			success: true,
+			message: 'File uploaded successfully',
+			file: {
+				id: newReport.id,
+				name: newReport.name,
+				size: file.size,
+				uploadedAt: newReport.uploadedAt,
+			},
+		});
 	}),
 ];
