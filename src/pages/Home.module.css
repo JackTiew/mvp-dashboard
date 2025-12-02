@@ -1,0 +1,199 @@
+.container {
+	min-height: 100%;
+	background: #f0f2f5;
+	transition: background-color 0.3s ease;
+}
+
+[data-theme='dark'] .container {
+	background: #141414;
+}
+
+/* KPI Cards */
+.kpiRow {
+	margin-bottom: 0;
+}
+
+.kpiCard {
+	height: 100%;
+	border-radius: 8px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.kpiHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.kpiLabel {
+	font-size: 12px;
+	font-weight: 600;
+	color: #8c8c8c;
+	letter-spacing: 0.5px;
+}
+
+.kpiValue {
+	font-size: 48px;
+	font-weight: 600;
+	color: #262626;
+	line-height: 1.2;
+	margin-bottom: 8px;
+	transition: color 0.3s ease;
+}
+
+[data-theme='dark'] .kpiValue {
+	color: rgba(255, 255, 255, 0.95);
+}
+
+.kpiChange {
+	font-size: 18px;
+	color: #52c41a;
+	margin-left: 8px;
+}
+
+.kpiDescription {
+	font-size: 14px;
+	color: #8c8c8c;
+	line-height: 1.5;
+}
+
+/* Section Cards */
+.sectionCard {
+	height: 100%;
+	border-radius: 8px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.sectionCard :global(.ant-card-head) {
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.sectionCard :global(.ant-card-head-title) {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.sectionCard :global(.ant-card-extra) {
+	color: #1890ff;
+	font-size: 14px;
+}
+
+/* Chart Cards */
+.chartCard {
+	border-radius: 8px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.chartCard :global(.ant-card-head) {
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.chartCard :global(.ant-card-head-title) {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.chartCard :global(.ant-card-extra) {
+	font-size: 12px;
+}
+
+.chartCard :global(.ant-card-body) {
+	padding: 16px;
+}
+
+/* AI Insight Card */
+.insightCard {
+	border-radius: 8px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	border: none;
+}
+
+.insightCard :global(.ant-card-body) {
+	padding: 20px;
+}
+
+.insightHeader {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.aiIcon {
+	font-size: 20px;
+	color: white;
+}
+
+.aiTitle {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.insightTitle {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 16px;
+	color: white;
+}
+
+.insightList {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 16px 0;
+}
+
+.insightList li {
+	padding: 8px 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.95);
+}
+
+.insightList li::before {
+	content: '•';
+	margin-right: 8px;
+	font-weight: bold;
+}
+
+.insightList strong {
+	font-weight: 600;
+	color: white;
+}
+
+.insightFooter {
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.8);
+	padding-top: 12px;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Table Customization */
+.sectionCard :global(.ant-table-cell) {
+	padding: 12px 8px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.chartCard :global(.ant-table-cell) {
+	padding: 12px 8px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.container {
+		padding: 16px;
+	}
+
+	.kpiValue {
+		font-size: 36px;
+	}
+
+	.kpiChange {
+		font-size: 16px;
+	}
+}

@@ -46,7 +46,7 @@ export const Login = () => {
           <Title level={2} className={styles.title}>
             Welcome Back
           </Title>
-          <Text type="secondary">Sign in to Sustainawise Dashboard</Text>
+          <Text type="secondary">Sign in to IntegrityOS</Text>
         </div>
 
         <Form

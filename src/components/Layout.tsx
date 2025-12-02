@@ -2,14 +2,19 @@
 import { useState, useEffect } from 'react';
 import { Layout as AntLayout, Menu, Switch, Typography, Button, Dropdown } from 'antd';
 import {
-  DashboardOutlined,
-  FileTextOutlined,
-  BarChartOutlined,
   BulbOutlined,
   UserOutlined,
   LogoutOutlined,
   MenuOutlined,
-  CloudUploadOutlined,
+  HomeOutlined,
+  CheckSquareOutlined,
+  ApartmentOutlined,
+  SafetyOutlined,
+  TeamOutlined,
+  WarningOutlined,
+  BookOutlined,
+  HeartOutlined,
+  LineChartOutlined,
 } from '@ant-design/icons';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
@@ -44,24 +49,61 @@ export const Layout = () => {
 
   const menuItems = [
     {
-      key: '/',
-      icon: <BarChartOutlined />,
-      label: <Link to="/">Metrics</Link>,
+      type: 'group' as const,
+      label: 'Main',
+      children: [
+        {
+          key: '/',
+          icon: <HomeOutlined />,
+          label: <Link to="/">Dashboard</Link>,
+        },
+        {
+          key: '/my-tasks',
+          icon: <CheckSquareOutlined />,
+          label: <Link to="/my-tasks">My Tasks</Link>,
+        },
+        {
+          key: '/workflows',
+          icon: <ApartmentOutlined />,
+          label: <Link to="/workflows">Workflows</Link>,
+        },
+        {
+          key: '/compliance',
+          icon: <SafetyOutlined />,
+          label: <Link to="/compliance">Compliance</Link>,
+        },
+        {
+          key: '/third-parties',
+          icon: <TeamOutlined />,
+          label: <Link to="/third-parties">Third Parties</Link>,
+        },
+        {
+          key: '/incidents',
+          icon: <WarningOutlined />,
+          label: <Link to="/incidents">Incidents</Link>,
+        },
+      ],
     },
     {
-      key: '/case',
-      icon: <DashboardOutlined />,
-      label: <Link to="/case">Case Dashboard</Link>,
-    },
-    {
-      key: '/rules',
-      icon: <FileTextOutlined />,
-      label: <Link to="/rules">Rules Studio</Link>,
-    },
-    {
-      key: '/data-connector',
-      icon: <CloudUploadOutlined />,
-      label: <Link to="/data-connector">Data Connector</Link>,
+      type: 'group' as const,
+      label: 'Integrity & ESG',
+      children: [
+        {
+          key: '/policies-training',
+          icon: <BookOutlined />,
+          label: <Link to="/policies-training">Policies & Training</Link>,
+        },
+        {
+          key: '/integrity-culture',
+          icon: <HeartOutlined />,
+          label: <Link to="/integrity-culture">Integrity Culture</Link>,
+        },
+        {
+          key: '/esg-reporting',
+          icon: <LineChartOutlined />,
+          label: <Link to="/esg-reporting">ESG Reporting</Link>,
+        },
+      ],
     },
   ];
 
@@ -69,13 +111,23 @@ export const Layout = () => {
   const getPageTitle = () => {
     switch (location.pathname) {
       case '/':
-        return 'Metrics Dashboard';
-      case '/case':
-        return 'Case Dashboard';
-      case '/rules':
-        return 'Rules Studio';
-      case '/data-connector':
-        return 'Data Connector';
+        return 'Dashboard';
+      case '/my-tasks':
+        return 'My Tasks';
+      case '/workflows':
+        return 'Workflows';
+      case '/compliance':
+        return 'Compliance';
+      case '/third-parties':
+        return 'Third Parties';
+      case '/incidents':
+        return 'Incidents';
+      case '/policies-training':
+        return 'Policies & Training';
+      case '/integrity-culture':
+        return 'Integrity Culture';
+      case '/esg-reporting':
+        return 'ESG Reporting';
       default:
         return 'Page not found';
     }
@@ -101,7 +153,7 @@ export const Layout = () => {
           <div className={styles.logoContainer}>
             {!collapsed && (
               <Title level={4} className={styles.logoTitle}>
-                Sustainawise
+                IntegrityOS
               </Title>
             )}
           </div>
@@ -124,7 +176,7 @@ export const Layout = () => {
         >
           <div className={styles.logoContainer}>
             <Title level={4} className={styles.logoTitle}>
-              Sustainawise
+              IntegrityOS
             </Title>
           </div>
           <Menu

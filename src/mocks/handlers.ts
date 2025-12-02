@@ -1,6 +1,6 @@
 // Mock Service Worker handlers for API endpoints
 import { http, HttpResponse } from 'msw';
-import { mockRules, mockCases, mockMetrics, mockReports } from './data';
+import { mockRules, mockCases, mockMetrics, mockReports, mockDashboard } from './data';
 import type { ICreateRuleReq, IRule } from '../interface/rule';
 import type { ICase } from '../interface/case';
 import type { ICaseActionReq } from '../interface/case';
@@ -221,5 +221,10 @@ export const handlers = [
 				uploadedAt: newReport.uploadedAt,
 			},
 		});
+	}),
+
+	// GET /api/v1/dashboard - Get dashboard data
+	http.get(`${BASE_URL}/api/v1/dashboard`, () => {
+		return HttpResponse.json(mockDashboard);
 	}),
 ];
